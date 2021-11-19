@@ -10,6 +10,8 @@
 #' @inheritParams get_chirps
 #' @param period an integer value for the period of ESI data, 
 #' four weeks period = 1, twelve weeks = 2
+#' @param operation optional, an integer that represents which type of
+#' statistical operation to perform on the dataset
 #' @details
 #'  \bold{operation}: supported operations are:  
 #'  \tabular{rll}{
@@ -36,10 +38,7 @@
 #' \code{\link[sf]{sf}}, please look sf documentation for 
 #' possible issues.
 #' 
-#' @references
-#' ClimateSERV \url{https://climateserv.servirglobal.net}
-#' @examples
-#' \donttest{
+#' @examplesIf interactive()
 #' 
 #' lonlat <- data.frame(lon = c(-55.0281,-54.9857),
 #'                      lat = c(-2.8094, -2.8756))
@@ -54,8 +53,7 @@
 #' # the argument dist passed through sf increase the buffer area
 #' 
 #' dt <- get_esi(lonlat, dates = dates, dist = 0.1)
-#'  
-#' } 
+#'
 #' @importFrom sf st_centroid read_sf st_geometry_type
 #' @export
 get_esi <- function(object, dates, operation = 5, period = 1, 

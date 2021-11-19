@@ -6,11 +6,11 @@
 \alias{as.geojson.sf}
 \title{Methods to coerce geographical coordinates into a geojson polygon}
 \usage{
-as.geojson(lonlat, dist = 0.00001, nQuadSegs = 2L, ...)
+as.geojson(lonlat, dist = 1e-05, nQuadSegs = 2L, ...)
 
-\method{as.geojson}{default}(lonlat, dist = 0.00001, nQuadSegs = 2L, ...)
+\method{as.geojson}{default}(lonlat, dist = 1e-05, nQuadSegs = 2L, ...)
 
-\method{as.geojson}{sf}(lonlat, dist = 0.00001, nQuadSegs = 2L, ...)
+\method{as.geojson}{sf}(lonlat, dist = 1e-05, nQuadSegs = 2L, ...)
 }
 \arguments{
 \item{lonlat}{a data.frame or matrix with geographical coordinates lonlat, in 
@@ -30,7 +30,7 @@ Take single points from geographical coordinates and coerce into a
 geojson of geometry 'Polygon'
 }
 \examples{
-\donttest{
+\dontshow{if (interactive()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 # Default S3 Method
 # random geographic points within bbox(10, 12, 45, 47)
 library("sf")
@@ -54,6 +54,6 @@ lonlat <- data.frame(lon = runif(5, 10, 12),
 lonlat <- st_as_sf(lonlat, coords = c("lon","lat"))
 
 gjson <- as.geojson(lonlat)
-}
+\dontshow{\}) # examplesIf}
 }
 \concept{utility functions}

@@ -8,6 +8,8 @@
 #'  to present within the latitudes 70 and -70.
 #' 
 #' @inheritParams get_chirps
+#' @param operation optional, an integer that represents which type of
+#' statistical operation to perform on the dataset
 #' @details
 #'  \bold{operation}: supported operations are:  
 #'  \tabular{rll}{
@@ -30,12 +32,7 @@
 #' \item{lat}{the latitude as provided in \code{object}}
 #' \item{imerg}{the IMERG value}
 #' 
-#' @references
-#' ClimateSERV \url{https://climateserv.servirglobal.net}
-#' 
-#' NASA IMERG  \url{https://disasters.nasa.gov/instruments/imerg}
-#' @examples
-#' \donttest{
+#' @examplesIf interactive()
 #' lonlat <- data.frame(lon = c(-55.0281,-54.9857),
 #'                      lat = c(-2.8094, -2.8756))
 #' 
@@ -44,7 +41,7 @@
 #' dt <- get_imerg(lonlat, dates)
 #' 
 #' dt
-#' } 
+#'
 #' @importFrom sf st_centroid read_sf st_geometry_type
 #' @export
 get_imerg <- function(object, dates, operation = 5, ...) {

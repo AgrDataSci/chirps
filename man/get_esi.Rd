@@ -18,7 +18,8 @@ get_esi(object, dates, operation = 5, period = 1, ...)
 \arguments{
 \item{object}{input, an object of class \code{\link[base]{data.frame}} (or
 any other object that can be coerced to data.frame), \code{\link[terra]{SpatVector}}, 
-\code{\link[terra]{SpatRaster}}, \code{\link[sf]{sf}} or \code{geojson}}
+\code{\link[terra]{SpatRaster}}, \code{\link[terra]{SpatExtent}},
+\code{\link[sf]{sf}} or \code{geojson}}
 
 \item{dates}{a character of start and end dates in that order in the format
 "YYYY-MM-DD"}
@@ -29,7 +30,7 @@ statistical operation to perform on the dataset}
 \item{period}{an integer value for the period of ESI data, 
 four weeks period = 1, twelve weeks = 2}
 
-\item{...}{further arguments passed to \code{\link[terra]{terra}} 
+\item{...}{additional arguments passed to \code{\link[terra]{terra}} 
 or \code{\link[sf]{sf}} methods
 See details}
 
